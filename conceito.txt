@@ -1,0 +1,111 @@
+*** Qual o objetivo em usar Linguagem R ? *** 
+
+Analisar dados, aplicar técnica estatística, manipulação dos dados, fazer resumo, pré processamento, trabalhar com Machine Learning.
+
+
+*** De onde importamos os dados para o R ? *** 
+
+- Arquivos Texto    - flat files (txt, csv)
+- Arquivos Excel    - (xls, xlsx)
+- Banco de Dados    - (Oracle, SQL Server, MySQL, PostgreSQL, SQLite)
+- Dados da Internet - (Web Creawling, Web Scraping)
+- Data Lakes        - (Apache Hadoop)
+
+
+
+A maior parte do seu tempo em tarefas de Ciência de Dados será usado na preparação dos dados.
+
+
+*** Importação e Manipulação de Arquivos (txt, csv) ***
+
+A linguagem R apresenta 3 pacotes principais para carga de dados a partir de arquivos texto:
+
+- utils       (ja vem com a linguagem R)
+- readr       (precisa instalar e carregar)
+- data.table  (precisa instalar e carregar)
+
+
+        Pacote utils         Pacote readr            Pacote data.table
+
+         read.table()	       read.delim()               fread()
+	 read.csv()	       read.csv()
+	 read.delim()	       read.tsv()	
+
+
+
+Pacote utils
+
+- O pacote utils, que é automaticamente carregado na sua sessão R, pode importar arquivos simples
+  em diferentes formas, através das funções:
+
+read.csv    - para valores separados por vírgula e ponto como separador decimal
+read.csv2   - para valores separados por ponto e vírgula e vírgula como separador decimal
+read.delim  - para valores separados por tab e ponto como separador decimal
+read.delim2 - para valores separados por tab e vírgula e vírgula como separador decimal
+read.fwf    - para valores com número exato de bytes por coluna
+read.table  - faz a leitura de um arquivo em formato de tabela e carrega como dataframe
+
+
+De acordo com o caracter separador das colunas, você escolhe a melhor função para sua necessidade.
+
+
+* read.csv() - muito útil para importar arquivos com separadores de coluna
+
+Sintaxe:
+
+read.csv("arquivo.csv", stringAsFactors = FALSE)
+read.csv2("arquivo.csv", sep = ";", dec = ",", stringAsFactors = FALSE)
+
+
+* read.delim() - muito útil para importar arquivos com qualquer tipo de separador de colunas
+
+Sintaxe:
+
+read.delim("arquivo.txt")
+read.delim2("arquivo.txt")
+
+
+* read.table() - muito útil se está fazendo a leitura de arquivo ASCII, que contém dados em formato retangular.
+
+Sintaxe
+
+read.table("arquivo.txt", header = TRUE, sep = ",", stringAsFactores = FALSE)
+read.table("arquivo.txt", header = TRUE, sep = "\t", stringAsFactores = FALSE)
+
+
+Para cada uma das funções, temos um conjunto de parâmetros tais como:
+
+- header (para saber se vai importar ou não o cabeçalho do arquivo)
+- col.names (para no momento da importação colocar o título das colunas caso queira)
+- na.string (preenche valores NA nas colunas)
+- colClasses (mudar tipo de dado de uma coluna)
+- sep (separador)
+- stringAsFactores (transformar todas as strings em Factor)
+
+
+
+
+Pacote readr
+
+- Precisa instalar para usar - instal.packages("readr") -
+
+Diferença da funcao read.table do pacote utils para read_table do pacote readr
+
+arq1 <- read.table("bigdatafile.txt", col.names = c("DAY", "MONTH", "YEAR"))
+arq2 <- read_table("bigdatafile.txt", col_names = c("DAY", "MONTH", "YEAR"))
+
+"." -> pacote readr
+"_" -> pacote utils
+
+
+
+Pacote data.table
+
+- Usado para carga e manipulação de arquivos na ordem de 100GB em memória RAM
+
+
+Resumindo:
+
+Para conjuntos de dados com milhões de linhas  -> data.table
+Para conjuntos de dados com milhares de linhas -> readr
+Para conjuntos de dados com centenas de linhas -> utils
