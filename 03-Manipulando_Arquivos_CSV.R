@@ -68,4 +68,26 @@ str(df_iris2)
 
 
 
+# Gerando mais um arquivo CSV     (com esse, neste diretorio teremos 2 arquivos csv)
+write_csv(mtcars, 'mtcars.csv')
 
+dir()
+
+
+# Carregando e Manipulando Vários Arquivos CSV Simultaneamente
+
+# exibindo conteudo do diretorio
+list.files()
+
+
+# carregando todos os arquivos do tipo csv neste diretório
+
+lista_arquivos_csv <- list.files(getwd(), full.names = TRUE, pattern = "*.csv")
+lista_arquivos_csv
+
+
+# loop para carregar cada arquivo e gerar uma lista
+
+lista_arquivos_csv2 <- lapply(lista_arquivos_csv, read_csv)
+
+View(lista_arquivos_csv2)
