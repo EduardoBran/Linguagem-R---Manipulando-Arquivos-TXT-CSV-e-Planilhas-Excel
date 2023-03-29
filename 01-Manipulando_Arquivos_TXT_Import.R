@@ -69,3 +69,65 @@ str(df1)
 
 
 
+
+# Importando arquivo com read.csv()
+
+
+# carregando arquivo sem nenhum parâmetro com csv 
+# (reconhece automaticamente o cabeçalho e separador de coluna)
+
+df1 <- read.csv("jogadores.txt")
+df1
+
+# retorna numero de linhas e coluna
+dim(df1)
+
+
+# carregando arquivo sem nenhum parâmetro com csv2
+# (reconhece automaticamente apenas o cabeçalho)
+
+df1 <- read.csv2("jogadores.txt")
+df1
+
+# retorna numero de linhas e coluna
+dim(df1)
+
+
+# carregando arquivo com parâmetro sep (separador de colunas) com csv2
+
+df1 <- read.csv2("jogadores.txt", sep = ',')
+df1
+
+# retorna numero de linhas e coluna
+dim(df1)
+
+
+
+
+# Importando arquivo com read.delim()
+
+
+# carregando arquivo sem nenhum parâmetro
+# (reconhece automaticamente o cabeçalho)
+
+df1 <- read.delim("jogadores.txt")
+df1
+
+# retorna numero de linhas e coluna
+dim(df1)
+
+
+# carregando arquivo com parâmetro sep (separador de colunas)
+
+df1 <- read.delim("jogadores.txt", sep = ',')
+df1
+
+# retorna numero de linhas e coluna
+dim(df1)
+
+
+
+# Qual a melhor função para o dia a dia ?
+
+# - com sep ' , ' e ' ; ' - read.csv() ou fread()
+
