@@ -79,7 +79,7 @@ Para cada uma das funções, temos um conjunto de parâmetros tais como:
 - col.names (para no momento da importação colocar o título das colunas caso queira)
 - na.string (preenche valores NA nas colunas)
 - colClasses (mudar tipo de dado de uma coluna)
-- sep (separador)
+- sep (separador de coluna)
 - stringAsFactores (transformar todas as strings em Factor)
 
 
