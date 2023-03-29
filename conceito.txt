@@ -1,9 +1,10 @@
-*** Qual o objetivo em usar Linguagem R ? *** 
+************ Qual o objetivo em usar Linguagem R ? ************ 
 
 Analisar dados, aplicar técnica estatística, manipulação dos dados, fazer resumo, pré processamento, trabalhar com Machine Learning.
 
 
-*** De onde importamos os dados para o R ? *** 
+
+************ De onde importamos os dados para o R ? ************ 
 
 - Arquivos Texto    - flat files (txt, csv)
 - Arquivos Excel    - (xls, xlsx)
@@ -16,7 +17,10 @@ Analisar dados, aplicar técnica estatística, manipulação dos dados, fazer resumo
 A maior parte do seu tempo em tarefas de Ciência de Dados será usado na preparação dos dados.
 
 
-*** Importação e Manipulação de Arquivos (txt, csv) ***
+
+
+************ Importação e Manipulação de Arquivos (txt, csv) ************
+
 
 A linguagem R apresenta 3 pacotes principais para carga de dados a partir de arquivos texto:
 
@@ -27,13 +31,13 @@ A linguagem R apresenta 3 pacotes principais para carga de dados a partir de arq
 
         Pacote utils         Pacote readr            Pacote data.table
 
-         read.table()	       read.delim()               fread()
-	 read.csv()	       read.csv()
-	 read.delim()	       read.tsv()	
+         read.table()	       read_delim()               fread()
+	 read.csv()	       read_csv()
+	 read.delim()	       read_tsv()	
 
 
 
-Pacote utils
+** Pacote utils **
 
 - O pacote utils, que é automaticamente carregado na sua sessão R, pode importar arquivos simples
   em diferentes formas, através das funções:
@@ -85,14 +89,14 @@ Para cada uma das funções, temos um conjunto de parâmetros tais como:
 
 
 
-Pacote readr
+** Pacote readr **
 
 - Precisa instalar para usar - instal.packages("readr") -
 
 Diferença da funcao read.table do pacote utils para read_table do pacote readr
 
-arq1 <- read.table("bigdatafile.txt", col.names = c("DAY", "MONTH", "YEAR"))
-arq2 <- read_table("bigdatafile.txt", col_names = c("DAY", "MONTH", "YEAR"))
+arq1 <- read.table("bigdatafile.txt", col.names = c("DAY", "MONTH", "YEAR"))    # pacote utils
+arq2 <- read_table("bigdatafile.txt", col_names = c("DAY", "MONTH", "YEAR"))    # pacote readr
 
 "." -> pacote utils
 "_" -> pacote readr
@@ -104,8 +108,51 @@ Pacote data.table
 - Usado para carga e manipulação de arquivos na ordem de 100GB em memória RAM
 
 
+
 Resumindo:
 
 Para conjuntos de dados com milhões de linhas  -> data.table
 Para conjuntos de dados com milhares de linhas -> readr
 Para conjuntos de dados com centenas de linhas -> utils
+
+
+
+
+************ Dicas Para Importação e Manipulação de Arquivos em Linguagem R ************
+
+
+- Evite espaços em branco e números como título para as colunas (nomeação de colunas no arquivo ou no dataframe criado)
+
+- Use nomes curtos como título de coluna
+
+- Normalmente, a primeira linha de cada arquivo é o cabeçalho, a lista de nomes para cada coluna
+
+- Para concatenação de palavras, use '.' ou '_'
+
+- Evite o uso de caracteres especiais
+
+- Dados NA podem existir no seu conjunto de dados e isso será tratato no processo de limpeza (ou trata valores no processo de carregamento de dados ou no processo de limpeza)
+
+
+- Atenção aos detalhes
+	
+  -> Encoding 
+  -> Linha de cabeçalho 
+  -> Separador de colunas
+  -> Quoting (aspas)
+  -> Missing values
+  -> Linhas em branco
+  -> Espaços em branco em campos do tipo caracter
+  -> Comentários
+
+- Outros Pacotes para Importação de Arquivos
+
+  -> Pacote rjson      -    leitura de arquivos JSON
+  -> Pacote XML        -    leitura de arquivos xml
+  -> Pacote httr       -    leitura de páginas html
+  -> Pacote Rcurl      -    Web Crawling
+  -> Pacote foreign    -    leitura de arquivos do SPSS, SAS
+  -> Pacote sas7bdat   -    leitura de arquivos SAS
+
+
+
