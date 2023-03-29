@@ -94,8 +94,8 @@ Diferença da funcao read.table do pacote utils para read_table do pacote readr
 arq1 <- read.table("bigdatafile.txt", col.names = c("DAY", "MONTH", "YEAR"))
 arq2 <- read_table("bigdatafile.txt", col_names = c("DAY", "MONTH", "YEAR"))
 
-"." -> pacote readr
-"_" -> pacote utils
+"." -> pacote utils
+"_" -> pacote readr
 
 
 
